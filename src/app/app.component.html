@@ -1,10 +1,22 @@
 <header>
   <p>Página inicial de {{title}}</p>
-  <ul>
-    <li><a href="">Inicio</a></li>
-    <li><a href="/login">Login</a></li>
-    <li><a href="/registro">Registro</a></li>
-  </ul>
+  <div *ngIf="!isLogged; then nologged else logged"></div>
+  <ng-template #nologged> 
+    <ul>
+      <li><a href="">Inicio</a></li>
+      <li><a href="/login">Login</a></li>
+      <li><a href="/registro">Registro</a></li>
+    </ul>
+  </ng-template>
+
+  <ng-template #logged> 
+    <ul>
+      <li><a href="">Inicio</a></li>
+      <li> Hola {{email}} </li>
+      <li> <button (click)="logout()"> Logout </button></li>
+    </ul>
+  </ng-template>
+
 </header>
 <router-outlet></router-outlet>
 <footer>

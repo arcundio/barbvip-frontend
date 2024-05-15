@@ -1,1 +1,12 @@
-<p>login works!</p>
+<form #f="ngForm" (ngSubmit)="loguearse()" >
+    <div>
+        <label>Email: </label>
+        <input type="text" name="email" [(ngModel)]="login.email" />
+    </div>
+    <div>
+        <label>Contraseña: </label>
+        <input type="password" name="password" [(ngModel)]="login.password"/>
+    </div>
+    <button type="submit" [disabled]="f.invalid">Login</button>
+    <app-alerta [alerta]="alerta"></app-alerta>
+</form>

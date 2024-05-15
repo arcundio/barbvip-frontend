@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { InicioComponent } from './pagina/inicio/inicio.component';
 import { LoginComponent } from './pagina/login/login.component';
@@ -11,6 +12,7 @@ import { VerServiciosComponent } from './pagina/ver-servicios/ver-servicios.comp
 import { CitasComponent } from './pagina/citas/citas.component';
 import { InscripcionesComponent } from './pagina/inscripciones/inscripciones.component';
 import { PagoComponent } from './pagina/pago/pago.component';
+import { AlertaComponent } from './pagina/alerta/alerta.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +24,21 @@ import { PagoComponent } from './pagina/pago/pago.component';
     VerServiciosComponent,
     CitasComponent,
     InscripcionesComponent,
-    PagoComponent
+    PagoComponent,
+    AlertaComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideHttpClient(
+      withFetch()
+    )
   ],
   bootstrap: [AppComponent]
 })
