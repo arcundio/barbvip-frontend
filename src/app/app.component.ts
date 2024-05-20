@@ -11,11 +11,14 @@ export class AppComponent implements OnInit {
   title = 'barbvip';
   isLogged = false;
   email: string = "";
+  isAdmin: boolean = false;
 
   constructor(private tokenService: TokenService, private sesionService: SesionService) {
 
   }
+
   ngOnInit(): void {
+
     const objeto = this;
     this.sesionService.currentMessage.subscribe({
       next: data => {
@@ -23,7 +26,13 @@ export class AppComponent implements OnInit {
       }
     });
     this.actualizarSesion(this.tokenService.isLogged());
+
+    if (this.tokenService.getRole() == 'admin') {
+      this.isAdmin = true;
+    }
+    
   }
+
 
   private actualizarSesion(estado: boolean) {
     this.isLogged = estado;
@@ -33,6 +42,7 @@ export class AppComponent implements OnInit {
       this.email = "";
     }
   }
+
 
   public logout() {
     this.tokenService.logout()

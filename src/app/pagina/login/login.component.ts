@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { AuthService } from '../../servicios/auth.service';
 import { TokenService } from '../../servicios/token.service';
 import { Alerta } from '../../modelo/alerta';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-login',

@@ -17,4 +17,8 @@ export class SesionService {
   public updateSession(data: boolean) { 
     this.messageSource.next(data);
   }
+
+  public updateRole(data: string) {
+    this.messageSource.next(data)
+  }
 }

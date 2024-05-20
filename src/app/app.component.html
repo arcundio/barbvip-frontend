@@ -1,24 +1,60 @@
-<header>
-  <p>Página inicial de {{title}}</p>
-  <div *ngIf="!isLogged; then nologged else logged"></div>
-  <ng-template #nologged> 
-    <ul>
-      <li><a href="">Inicio</a></li>
-      <li><a href="/login">Login</a></li>
-      <li><a href="/registro">Registro</a></li>
-    </ul>
-  </ng-template>
+<!-- src/app/app.component.html -->
+<div class="d-flex flex-column min-vh-100">
+  <!-- Header -->
+  <header class="bg-dark text-white py-3">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <h1 class="h3 mb-0">Barbería VIP</h1>
+        <nav>
+          <div *ngIf="!isLogged; then nologged else logged"></div>
+          <ng-template #nologged>
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link text-white" href="/">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="/login">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="/registro">Registro</a>
+              </li>
+            </ul>
+          </ng-template>
+          <ng-template #logged>
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link text-white" href="/">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <span class="nav-link text-white">Hola {{ email }}</span>
+              </li>
+              <li *ngIf="isAdmin" class="nav-item">
+                <a class="nav-link text-white" href="/gestion-cursos">Gestionar Curso</a>
+              </li>
+              <li *ngIf="isAdmin" class="nav-item">
+                <a class="nav-link text-white" href="/gestion-servicio">Gestionar Servicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#" (click)="logout()">Logout</a>
+              </li>
+            </ul>
+          </ng-template>
+        </nav>
+      </div>
+    </div>
+  </header>
 
-  <ng-template #logged> 
-    <ul>
-      <li><a href="">Inicio</a></li>
-      <li> Hola {{email}} </li>
-      <li> <button (click)="logout()"> Logout </button></li>
-    </ul>
-  </ng-template>
+  <!-- Main Content -->
+  <main class="flex-grow-1">
+    <div class="container mt-4">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
 
-</header>
-<router-outlet></router-outlet>
-<footer>
-  <p>Barbería VIP - 2024</p>
-</footer>
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-3 mt-auto">
+    <div class="container text-center">
+      <p class="mb-0">Barbería VIP - 2024</p>
+    </div>
+  </footer>
+</div>

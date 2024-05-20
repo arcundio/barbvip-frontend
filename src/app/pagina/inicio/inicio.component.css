@@ -1,0 +1,34 @@
+.hero {
+    background: url('https://joseppons.com/formacion/wp-content/uploads/2020/11/servicios-salon-barberia.jpeg') no-repeat center center;
+    background-size: cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    font-size: 1.5rem;
+}
+
+.services {
+    padding: 3rem 0;
+    background-color: #f8f9fa;
+}
+
+.services .service {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.services .service:hover {
+    transform: translateY(-0.5rem);
+}
