@@ -57,10 +57,16 @@ export class AdministradorService {
 
   //agenda
 
-
+ 
 
   //gestionar pagos
 
+  public listarCitas(): Observable<MensajeDTO> {
+    return this.http.get<MensajeDTO>(`${this.adminURL}/listar-citas`);
+  }
 
+  public listarInscripciones(): Observable<MensajeDTO> {
+    return this.http.get<MensajeDTO>(`${this.adminURL}/listar-inscripciones`);
+  }
 
 }

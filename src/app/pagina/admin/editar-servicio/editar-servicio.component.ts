@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ItemServicioDTO } from '../../../modelo/admin/item-servicio-dto';
+import { ItemServicioDTO } from '../../../modelo/barberia/item-servicio-dto';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdministradorService } from '../../../servicios/administrador.service';
 import { error } from 'console';

@@ -1,1 +1,61 @@
-<p>gestionar-pagos works!</p>
+<div class="container-xl mt-4">
+    <div class="table-responsive">
+      <div class="table-wrapper">
+        <div class="table-title custom-header-color text-white p-3 rounded-top">
+        </div>
+        <div class="col-sm-6">
+            <h4><b>Solicitudes de citas</b></h4>
+          </div>
+          <br>
+        <table class="table table-striped table-hover table-bordered">
+          <thead class="table-dark">
+            <tr class="text-center">
+              <th>Servicios</th>
+              <th>Precio</th>
+              <th>Fecha</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cita of citas" class="text-center">
+              <td>{{ cita.servicios }}</td>
+              <td>{{ cita.precio }}</td>
+              <td>{{ cita.fecha }}</td>
+              <td><span [ngClass]="cita.estado == 'PENDIENTE' ? 'text-bg-danger' : 'text-bg-success'" class="badge">{{cita.estado}}</span></td>
+            </tr>
+            <tr *ngIf="citas.length === 0">
+              <td colspan="6" class="text-center">No hay citas disponibles</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="col-sm-6">
+            <h4><b>Inscripciones</b></h4>
+          </div>
+          <br>
+        <table class="table table-striped table-hover table-bordered">
+          <thead class="table-dark">
+            <tr class="text-center">
+              <th>Nombre</th>
+              <th>Costo</th>
+              <th>Fecha</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let inscripcion of inscripciones" class="text-center">
+              <td>{{ inscripcion.nombreCurso }}</td>
+              <td>{{ inscripcion.costo }}</td>
+              <td>{{ inscripcion.fechaInscripcion }}</td>
+              <td><span [ngClass]="inscripcion.estado == 'PENDIENTE' ? 'text-bg-danger' : 'text-bg-success'" class="badge">{{inscripcion.estado}}</span></td>
+            </tr>
+            <tr *ngIf="inscripciones.length === 0">
+              <td colspan="6" class="text-center">No hay inscripciones disponibles</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+ 
+  
