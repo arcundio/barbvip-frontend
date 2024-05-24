@@ -3,6 +3,8 @@ import { ItemSolicitudCitaDTO } from '../../../modelo/cliente/ItemSolicitudCitaD
 import { ItemInscripcionCursoDTO } from '../../../modelo/cliente/ItemInscripcionCursoDTO';
 import { AdministradorService } from '../../../servicios/administrador.service';
 import { Alerta } from '../../../modelo/otros/alerta';
+import { EstadoInscripcionDTO } from '../../../modelo/admin/EstadoInscripcionDTO';
+import { EstadoCitaDTO } from '../../../modelo/admin/EstadoCitaDTO';
 
 @Component({
   selector: 'app-gestionar-pagos',
@@ -12,17 +14,20 @@ import { Alerta } from '../../../modelo/otros/alerta';
 export class GestionarPagosComponent {
 
   citas: ItemSolicitudCitaDTO[];
-  inscripciones : ItemInscripcionCursoDTO[];
-  alerta!:Alerta;
+  inscripciones: ItemInscripcionCursoDTO[];
+  alerta!: Alerta;
+  estadoInscripcion: EstadoInscripcionDTO = new EstadoInscripcionDTO();
+  estadoCita: EstadoCitaDTO = new EstadoCitaDTO();
 
-  constructor(private adminService: AdministradorService){
+  constructor(private adminService: AdministradorService) {
     this.citas = [];
     this.inscripciones = [];
+
     this.cargarCitas();
     this.cargarInscripciones();
   }
 
-  public cargarCitas(){
+  public cargarCitas() {
 
     this.adminService.listarCitas().subscribe({
       next: data => {
@@ -34,7 +39,7 @@ export class GestionarPagosComponent {
     });
   }
 
-  public cargarInscripciones(){
+  public cargarInscripciones() {
 
     this.adminService.listarInscripciones().subscribe({
       next: data => {
@@ -44,6 +49,49 @@ export class GestionarPagosComponent {
         this.alerta = { mensaje: error.error.respuesta, tipo: "danger" };
       }
     });
+  }
+
+  public cambiarEstadoInscripcion(inscripcion: ItemInscripcionCursoDTO) {
+
+    if (inscripcion.estado === "PENDIENTE") {
+      this.estadoInscripcion.estado = "PAGADO";
+    } else {
+      this.estadoInscripcion.estado = "PENDIENTE";
+    }
+
+    this.estadoInscripcion.idInscripcion = inscripcion.idInscripcion;
+
+    this.adminService.cambiarEstadoInscripcion(this.estadoInscripcion).subscribe({
+      next: data => {
+        this.alerta = { mensaje: data.respuesta, tipo: "success" };
+      },
+      error: error => {
+        this.alerta = { mensaje: error.error.respuesta, tipo: "danger" };
+      }
+    });
+
+    this.cargarInscripciones();
+  }
+
+  public cambiarEstadoCita(cita: ItemSolicitudCitaDTO) {
+    if (cita.estado === "PENDIENTE") {
+      this.estadoCita.estado = "PAGADO";
+    } else {
+      this.estadoCita.estado = "PENDIENTE";
+    }
+
+    this.estadoCita.idCita = cita.idCita;
+
+    this.adminService.cambiarEstadoCita(this.estadoCita).subscribe({
+      next: data => {
+        this.alerta = { mensaje: data.respuesta, tipo: "success" };
+      },
+      error: error => {
+        this.alerta = { mensaje: error.error.respuesta, tipo: "danger" };
+      }
+    });
+
+    this.cargarCitas();
   }
 
 }

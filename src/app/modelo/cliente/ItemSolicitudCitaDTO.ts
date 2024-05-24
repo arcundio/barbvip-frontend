@@ -4,5 +4,6 @@ export class ItemSolicitudCitaDTO {
     precio: number = 0;
     fecha: string = "";
     estado: string = "";
-    idPago: number = 0
+    idPago: number = 0;
+    idCita: number = 0;
 }

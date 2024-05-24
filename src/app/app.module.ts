@@ -7,8 +7,6 @@ import { AppComponent } from './app.component';
 import { InicioComponent } from './pagina/inicio/inicio.component';
 import { LoginComponent } from './pagina/login/login.component';
 import { RegistroComponent } from './pagina/cliente/registro/registro.component';
-import { VerCursosComponent } from './pagina/ver-cursos/ver-cursos.component';
-import { VerServiciosComponent } from './pagina/ver-servicios/ver-servicios.component';
 import { CitasComponent } from './pagina/cliente/citas/citas.component';
 import { InscripcionesComponent } from './pagina/cliente/inscripciones/inscripciones.component';
 import { PagoComponent } from './pagina/cliente/pago/pago.component';
@@ -31,8 +29,6 @@ import { GestionarPagosComponent } from './pagina/admin/gestionar-pagos/gestiona
     InicioComponent,
     LoginComponent,
     RegistroComponent,
-    VerCursosComponent,
-    VerServiciosComponent,
     CitasComponent,
     InscripcionesComponent,
     PagoComponent,

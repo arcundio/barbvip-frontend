@@ -21,8 +21,12 @@
               <td>{{ cita.servicios }}</td>
               <td>{{ cita.precio }}</td>
               <td>{{ cita.fecha }}</td>
-              <td><span [ngClass]="cita.estado == 'PENDIENTE' ? 'text-bg-danger' : 'text-bg-success'" class="badge">{{cita.estado}}</span></td>
-            </tr>
+              <td>
+                <span [class.text-bg-danger]="cita.estado === 'PENDIENTE'" [class.text-bg-success]="cita.estado !== 'PENDIENTE'" class="badge">
+                  {{ cita.estado }}
+                </span>
+                <button class="btn btn-primary btn-sm" (click)="cambiarEstadoCita(cita)">Pago en efectivo</button>
+              </td>            </tr>
             <tr *ngIf="citas.length === 0">
               <td colspan="6" class="text-center">No hay citas disponibles</td>
             </tr>
@@ -46,7 +50,12 @@
               <td>{{ inscripcion.nombreCurso }}</td>
               <td>{{ inscripcion.costo }}</td>
               <td>{{ inscripcion.fechaInscripcion }}</td>
-              <td><span [ngClass]="inscripcion.estado == 'PENDIENTE' ? 'text-bg-danger' : 'text-bg-success'" class="badge">{{inscripcion.estado}}</span></td>
+              <td>
+                <span [class.text-bg-danger]="inscripcion.estado === 'PENDIENTE'" [class.text-bg-success]="inscripcion.estado !== 'PENDIENTE'" class="badge">
+                  {{ inscripcion.estado }}
+                </span>
+                <button class="btn btn-primary btn-sm" (click)="cambiarEstadoInscripcion(inscripcion)" >Pago en efectivo</button>
+              </td>            
             </tr>
             <tr *ngIf="inscripciones.length === 0">
               <td colspan="6" class="text-center">No hay inscripciones disponibles</td>

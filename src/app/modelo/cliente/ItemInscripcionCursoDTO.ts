@@ -8,5 +8,7 @@ export class ItemInscripcionCursoDTO {
 
     nombreCurso: string = "";
 
-    idPago: number = 0
+    idPago: number = 0;
+
+    idInscripcion: number = 0;
 }

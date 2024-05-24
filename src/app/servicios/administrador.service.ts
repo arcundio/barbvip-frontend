@@ -4,6 +4,9 @@ import { CursoDTO } from '../modelo/admin/curso-dto';
 import { Observable } from 'rxjs';
 import { MensajeDTO } from '../modelo/otros/mensaje-dto';
 import { ServicioDTO } from '../modelo/admin/servicio-dto';
+import { EstadoInscripcionDTO } from '../modelo/admin/EstadoInscripcionDTO';
+import { EstadoCitaDTO } from '../modelo/admin/EstadoCitaDTO';
+import { ItemAgendaDTO } from '../modelo/admin/ItemAgendaDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -51,14 +54,20 @@ export class AdministradorService {
     return this.http.get<MensajeDTO>(`${this.adminURL}/obtener-servicio/${idServicio}`);
   }
 
-  public actualizarServicio(servicio: ServicioDTO, codigo: number) {
+  public actualizarServicio(servicio: ServicioDTO, codigo: number){
     return this.http.put<MensajeDTO>(`${this.adminURL}/actualizar-servicio/${codigo}`, servicio);
   }
 
   //agenda
 
- 
+  public actualizarAgenda(codigoBarbero: number, agenda : ItemAgendaDTO[]): Observable<MensajeDTO> {
+    return this.http.post<MensajeDTO>(`${this.adminURL}/actualizar-agenda/${codigoBarbero}`,agenda);
+  }
 
+  public cargarAgenda(idBarbero: number): Observable<MensajeDTO> {
+    return this.http.get<MensajeDTO>(`${this.adminURL}/cargar-agenda/${idBarbero}`);
+  }
+  
   //gestionar pagos
 
   public listarCitas(): Observable<MensajeDTO> {
@@ -68,5 +77,15 @@ export class AdministradorService {
   public listarInscripciones(): Observable<MensajeDTO> {
     return this.http.get<MensajeDTO>(`${this.adminURL}/listar-inscripciones`);
   }
+
+  public cambiarEstadoInscripcion(estadoInscripcion:EstadoInscripcionDTO): Observable<MensajeDTO> {
+    return this.http.put<MensajeDTO>(`${this.adminURL}/cambiar-estado-inscripcion`, estadoInscripcion);
+  }
+
+  public cambiarEstadoCita(estadoCita:EstadoCitaDTO): Observable<MensajeDTO> {
+    return this.http.put<MensajeDTO>(`${this.adminURL}/cambiar-estado-cita`, estadoCita);
+  }
+
+  
 
 }
