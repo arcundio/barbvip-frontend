@@ -19,7 +19,7 @@
     <div class="card mb-3">
         <div class="row g-0 d-flex align-items-center">
             <div class="col-lg-4 d-none d-lg-flex">
-                <img src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg" alt="Trendy Pants and Shoes"
+                <img src="https://res.cloudinary.com/dsia0fezi/image/upload/v1716481734/proyecto/OIG1.1_k5r1qg.jpg" alt="Trendy Pants and Shoes"
                     class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
             </div>
             <div class="col-lg-8">
@@ -28,16 +28,18 @@
                     <form #f="ngForm" (ngSubmit)="loguearse()">
                         <!-- Email input -->
                         <div class="form-outline mb-4">
+                            <label class="form-label" for="form2Example1">Correo Electrónico</label>
                             <input type="email" id="form2Example1" class="form-control" [(ngModel)]="login.email"
                                 name="email" required />
-                            <label class="form-label" for="form2Example1">Correo Electrónico</label>
+                           
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
+                            <label class="form-label" for="form2Example2">Contraseña</label>
                             <input type="password" id="form2Example2" class="form-control" [(ngModel)]="login.password"
                                 name="password" required />
-                            <label class="form-label" for="form2Example2">Contraseña</label>
+                          
                         </div>
 
                         <!-- Submit button -->

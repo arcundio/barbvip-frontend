@@ -12,12 +12,11 @@ const AUTHORIZATION = "Authorization";
 const BEARER = "Bearer ";
 @Injectable()
 export class UsuarioInterceptor implements HttpInterceptor {
-
   constructor(private tokenService: TokenService, private authService: AuthService) { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const isApiUrl = req.url.includes("api/auth");
-    const isBarberiaUrl = req.url.includes("api/barberia")
-    if (!this.tokenService.isLogged() || isApiUrl || isBarberiaUrl) {
+    const urlClinica = req.url.includes("api/barberia");
+    if (!this.tokenService.isLogged() || isApiUrl || urlClinica) {
       return next.handle(req);
     }
     let initReq = req;
@@ -28,5 +27,4 @@ export class UsuarioInterceptor implements HttpInterceptor {
   private addToken(req: HttpRequest<any>, token: string): HttpRequest<any> {
     return req.clone({ headers: req.headers.set(AUTHORIZATION, BEARER + token) });
   }
-  
 }

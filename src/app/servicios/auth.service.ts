@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { MensajeDTO } from '../modelo/mensaje-dto';
-import { LoginDTO } from '../modelo/login-dto';
-import { UsuarioDTO } from '../modelo/usuario-dto';
+import { MensajeDTO } from '../modelo/otros/mensaje-dto';
+import { LoginDTO } from '../modelo/barberia/login-dto';
+import { UsuarioDTO } from '../modelo/cliente/usuario-dto';
 
 @Injectable({
   providedIn: 'root'

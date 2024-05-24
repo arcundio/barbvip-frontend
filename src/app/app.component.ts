@@ -1,52 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TokenService } from './servicios/token.service';
-import { SesionService } from './servicios/sesion.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  title = 'barbvip';
+export class AppComponent {
+  title = 'Barberia VIP';
+
   isLogged = false;
   email: string = "";
-  isAdmin: boolean = false;
-
-  constructor(private tokenService: TokenService, private sesionService: SesionService) {
-
-  }
-
+  rol:string = "";
+  constructor(private tokenService: TokenService) { }
   ngOnInit(): void {
-
-    const objeto = this;
-    this.sesionService.currentMessage.subscribe({
-      next: data => {
-        objeto.actualizarSesion(data);
-      }
-    });
-    this.actualizarSesion(this.tokenService.isLogged());
-
-    if (this.tokenService.getRole() == 'admin') {
-      this.isAdmin = true;
-    }
-    
-  }
-
-
-  private actualizarSesion(estado: boolean) {
-    this.isLogged = estado;
-    if (estado) {
+    this.isLogged = this.tokenService.isLogged();
+    if (this.isLogged) {
       this.email = this.tokenService.getEmail();
-    } else {
-      this.email = "";
+      this.rol = this.tokenService.getRole();
+      console.log(this.rol)
     }
   }
-
-
   public logout() {
-    this.tokenService.logout()
+    this.tokenService.logout();
   }
-
-
 }

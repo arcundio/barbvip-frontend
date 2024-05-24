@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CursoDTO } from '../modelo/curso-dto';
+import { CursoDTO } from '../modelo/admin/curso-dto';
 import { Observable } from 'rxjs';
-import { MensajeDTO } from '../modelo/mensaje-dto';
-import { ServicioDTO } from '../modelo/servicio-dto';
+import { MensajeDTO } from '../modelo/otros/mensaje-dto';
+import { ServicioDTO } from '../modelo/admin/servicio-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -54,6 +54,13 @@ export class AdministradorService {
   public actualizarServicio(servicio: ServicioDTO, codigo: number) {
     return this.http.put<MensajeDTO>(`${this.adminURL}/actualizar-servicio/${codigo}`, servicio);
   }
+
+  //agenda
+
+
+
+  //gestionar pagos
+
 
 
 }

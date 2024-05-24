@@ -1,11 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { MensajeDTO } from '../modelo/mensaje-dto';
-import { SolicitudCitaDTO } from '../modelo/solicitud-cita-dto';
-import { InscripcionCursoDTO } from '../modelo/inscripcion-curso-dto';
-import { MetodoPagoDTO } from '../modelo/metodo-pago-dto';
-import { FechaDTO } from '../modelo/fecha-dto';
+import { MensajeDTO } from '../modelo/otros/mensaje-dto';
+import { SolicitudCitaDTO } from '../modelo/cliente/solicitud-cita-dto';
+import { InscripcionCursoDTO } from '../modelo/cliente/inscripcion-curso-dto';
+import { MetodoPagoDTO } from '../modelo/cliente/metodo-pago-dto';
 
 @Injectable({
   providedIn: 'root'

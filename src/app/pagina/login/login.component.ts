@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginDTO } from '../../modelo/login-dto';
+import { LoginDTO } from '../../modelo/barberia/login-dto';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../servicios/auth.service';
 import { TokenService } from '../../servicios/token.service';
-import { Alerta } from '../../modelo/alerta';
+import { Alerta } from '../../modelo/otros/alerta';
 import { AppComponent } from '../../app.component';
 
 @Component({

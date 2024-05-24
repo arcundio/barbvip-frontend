@@ -1,48 +1,29 @@
-<!-- src/app/app.component.html -->
-<div class="d-flex flex-column min-vh-100">
-  <!-- Header -->
+
   <header class="bg-dark text-white py-3">
     <div class="container">
       <div class="d-flex justify-content-between align-items-center">
         <h1 class="h3 mb-0">Barbería VIP</h1>
-        <nav>
-          <div *ngIf="!isLogged; then nologged else logged"></div>
-          <ng-template #nologged>
-            <ul class="nav">
-              <li class="nav-item">
-                <a class="nav-link text-white" href="/">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="/login">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="/registro">Registro</a>
-              </li>
-            </ul>
-          </ng-template>
-          <ng-template #logged>
-            <ul class="nav">
-              <li class="nav-item">
-                <a class="nav-link text-white" href="/">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <span class="nav-link text-white">Hola {{ email }}</span>
-              </li>
-              <li *ngIf="isAdmin" class="nav-item">
-                <a class="nav-link text-white" href="/gestion-cursos">Gestionar Curso</a>
-              </li>
-              <li *ngIf="isAdmin" class="nav-item">
-                <a class="nav-link text-white" href="/gestion-servicio">Gestionar Servicio</a>
-              </li>
-              <li>
-                <a class="nav-link text-white"> Agendas de Barberos </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="#" (click)="logout()">Logout</a>
-              </li>
-            </ul>
-          </ng-template>
-        </nav>
+
+        <app-menu-cliente class="col-12 col-lg-auto me-lg-auto" *ngIf="rol == 'cliente'"></app-menu-cliente>
+        <app-menu-admin class="col-12 col-lg-auto me-lg-auto" *ngIf="rol == 'admin'"></app-menu-admin>
+
+        <div class="text-end" *ngIf="!isLogged; then nologged else logged"></div>
+        <ng-template #nologged>
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><a routerLink="" class="nav-link px-2 text-white">Inicio</a></li>
+          </ul>
+          <div class="text-end">
+            <button type="button" routerLink="/login" class="btn btn-outline-light me-2">Login</button>
+            <button type="button" routerLink="/registro" class="btn btn-warning">Sign-up</button>
+          </div>
+        </ng-template>
+        <ng-template #logged>
+          <div class="text-end">
+            <label class="me-3">Hola {{email}}</label>
+            <button type="button" (click)="logout()" class="btn btn-warning">Logout</button>
+          </div>
+        </ng-template>
+
       </div>
     </div>
   </header>
@@ -57,7 +38,6 @@
   <!-- Footer -->
   <footer class="bg-dark text-white py-3 mt-auto">
     <div class="container text-center">
-      <p class="mb-0">Barbería VIP - 2024</p>
+      <p class="mb-0">© 2024 Barbería VIP</p>
     </div>
   </footer>
-</div>

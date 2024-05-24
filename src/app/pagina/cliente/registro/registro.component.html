@@ -1,0 +1,42 @@
+<form [formGroup]="registroForm" (ngSubmit)="registrar()" novalidate="">
+    <div class="mb-3 row">
+        <div class="col-sm-10">
+            <label>Nombres: </label>
+            <input type="text" class="form-control" name="nombre" formControlName="nombre"/>
+        </div> 
+    </div>
+    <div class="mb-3 row">
+        <div class="col-sm-10">
+            <label>Apellidos: </label>
+            <input type="text" class="form-control" name="apellido" formControlName="apellido"/>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <div class="col-sm-10">
+        <label>Telefono: </label>
+        <input type="text" class="form-control" name="telefono" formControlName="telefono"/>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <div class="col-sm-10">
+        <label>Email: </label>
+        <input type="text" class="form-control" name="email" formControlName="email"/>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <div class="col-sm-10">
+        <label>Contraseña: </label>
+        <input type="password" class="form-control" name="password" formControlName="password"/>
+        </div>
+    </div>
+    <div class="col-sm-10">
+        <label>Repetir contraseña: </label>
+        <input type="password" class="form-control" name="confirmaPassword" formControlName="confirmaPassword" />
+    </div>
+    <br>
+    <p *ngIf="!sonIguales()" >Las contraseñas no coinciden</p>
+    <button class="btn btn-primary" type="submit" [disabled]="registroForm.invalid || !sonIguales()">Registrarse</button>
+    <br>
+    <app-alerta [alerta]="alerta"></app-alerta>
+   
+</form>

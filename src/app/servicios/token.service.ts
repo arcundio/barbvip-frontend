@@ -46,13 +46,17 @@ export class TokenService {
   public login(token: string) {
     this.setToken(token);
     this.sesionServicio.updateSession(true)
-    this.router.navigate(["/"]);
+    this.router.navigate(["/"]).then(() => {
+      window.location.reload();
+    });
   }
 
   public logout() {
     window.sessionStorage.clear();
     this.sesionServicio.updateSession(false)
-    this.router.navigate(["/login"]);
+    this.router.navigate(["/login"]).then(() => {
+      window.location.reload();
+    });
   }
 
   private decodePayload(token: string): any {
