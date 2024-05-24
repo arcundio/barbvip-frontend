@@ -14,6 +14,7 @@
               <th>Precio</th>
               <th>Fecha</th>
               <th>Estado</th>
+              <th>Paga en efectivo?</th>
             </tr>
           </thead>
           <tbody>
@@ -22,11 +23,15 @@
               <td>{{ cita.precio }}</td>
               <td>{{ cita.fecha }}</td>
               <td>
-                <span [class.text-bg-danger]="cita.estado === 'PENDIENTE'" [class.text-bg-success]="cita.estado !== 'PENDIENTE'" class="badge">
+                <span [class.text-bg-danger]="cita.estado === 'PENDIENTE'" [class.text-bg-success]="cita.estado !== 'PENDIENTE'" class="badge me-2">
                   {{ cita.estado }}
                 </span>
+                
+              </td>
+              <td>
                 <button class="btn btn-primary btn-sm" (click)="cambiarEstadoCita(cita)">Pago en efectivo</button>
-              </td>            </tr>
+              </td>            
+            </tr>
             <tr *ngIf="citas.length === 0">
               <td colspan="6" class="text-center">No hay citas disponibles</td>
             </tr>
@@ -43,6 +48,7 @@
               <th>Costo</th>
               <th>Fecha</th>
               <th>Estado</th>
+              <th>Paga en efectivo?</th>
             </tr>
           </thead>
           <tbody>
@@ -51,11 +57,14 @@
               <td>{{ inscripcion.costo }}</td>
               <td>{{ inscripcion.fechaInscripcion }}</td>
               <td>
-                <span [class.text-bg-danger]="inscripcion.estado === 'PENDIENTE'" [class.text-bg-success]="inscripcion.estado !== 'PENDIENTE'" class="badge">
+                <span [class.text-bg-danger]="inscripcion.estado === 'PENDIENTE'" [class.text-bg-success]="inscripcion.estado !== 'PENDIENTE'" class="badge me-2">
                   {{ inscripcion.estado }}
                 </span>
-                <button class="btn btn-primary btn-sm" (click)="cambiarEstadoInscripcion(inscripcion)" [disabled]="!botonCambiarEstadoHabilitado">Pago en efectivo</button>
-              </td>            
+              </td>
+              <td>
+                <button class="btn btn-primary btn-sm" (click)="cambiarEstadoInscripcion(inscripcion)" [disabled]="inscripcion.estado==='PAGADO'">Pago en efectivo</button>
+
+              </td>   
             </tr>
             <tr *ngIf="inscripciones.length === 0">
               <td colspan="6" class="text-center">No hay inscripciones disponibles</td>
