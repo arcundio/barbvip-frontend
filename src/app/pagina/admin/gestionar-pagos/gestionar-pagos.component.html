@@ -54,7 +54,7 @@
                 <span [class.text-bg-danger]="inscripcion.estado === 'PENDIENTE'" [class.text-bg-success]="inscripcion.estado !== 'PENDIENTE'" class="badge">
                   {{ inscripcion.estado }}
                 </span>
-                <button class="btn btn-primary btn-sm" (click)="cambiarEstadoInscripcion(inscripcion)" >Pago en efectivo</button>
+                <button class="btn btn-primary btn-sm" (click)="cambiarEstadoInscripcion(inscripcion)" [disabled]="!botonCambiarEstadoHabilitado">Pago en efectivo</button>
               </td>            
             </tr>
             <tr *ngIf="inscripciones.length === 0">
@@ -65,6 +65,7 @@
       </div>
     </div>
   </div>
+  <app-alerta [alerta]="alerta" class="mt-3"></app-alerta> <app-alerta [alerta]="alerta2" class="mt-3"></app-alerta>
 
  
   

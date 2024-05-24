@@ -5,6 +5,8 @@ import { AdministradorService } from '../../../servicios/administrador.service';
 import { Alerta } from '../../../modelo/otros/alerta';
 import { EstadoInscripcionDTO } from '../../../modelo/admin/EstadoInscripcionDTO';
 import { EstadoCitaDTO } from '../../../modelo/admin/EstadoCitaDTO';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-gestionar-pagos',
@@ -16,10 +18,12 @@ export class GestionarPagosComponent {
   citas: ItemSolicitudCitaDTO[];
   inscripciones: ItemInscripcionCursoDTO[];
   alerta!: Alerta;
+  alerta2!: Alerta;
   estadoInscripcion: EstadoInscripcionDTO = new EstadoInscripcionDTO();
   estadoCita: EstadoCitaDTO = new EstadoCitaDTO();
+  botonCambiarEstadoHabilitado:boolean = true;
 
-  constructor(private adminService: AdministradorService) {
+  constructor(private adminService: AdministradorService, private router: Router) {
     this.citas = [];
     this.inscripciones = [];
 
@@ -46,7 +50,7 @@ export class GestionarPagosComponent {
         this.inscripciones = data.respuesta;
       },
       error: error => {
-        this.alerta = { mensaje: error.error.respuesta, tipo: "danger" };
+        this.alerta2 = { mensaje: error.error.respuesta, tipo: "danger" };
       }
     });
   }
@@ -71,6 +75,9 @@ export class GestionarPagosComponent {
     });
 
     this.cargarInscripciones();
+    this.router.navigate(["/admin/gestionar-pagos"]).then(() => {
+      window.location.reload();
+    });
   }
 
   public cambiarEstadoCita(cita: ItemSolicitudCitaDTO) {
@@ -92,6 +99,9 @@ export class GestionarPagosComponent {
     });
 
     this.cargarCitas();
+    this.router.navigate(["/admin/gestionar-pagos"]).then(() => {
+      window.location.reload();
+    });
   }
 
 }
