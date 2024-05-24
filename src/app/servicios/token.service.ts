@@ -27,6 +27,7 @@ export class TokenService {
     return null
   }
 
+
   public isLogged(): boolean {
     if (this.getToken()) {
       return true;
@@ -39,6 +40,15 @@ export class TokenService {
     if (token) {
       const values = this.decodePayload(token);
       return values.sub;
+    }
+    return "";
+  }
+
+  public getId(): string {
+    const token = this.getToken();
+    if (token) {
+      const values = this.decodePayload(token);
+      return values.id;
     }
     return "";
   }

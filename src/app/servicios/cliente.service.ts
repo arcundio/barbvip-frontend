@@ -28,7 +28,7 @@ export class ClienteService {
     return this.http.get<MensajeDTO>(`${this.clienteURL}/cargar-inscripciones/${codigo}`)
   }
 
-  public cargarCitas(codigo: number): Observable<MensajeDTO> {
+  public cargarCitas(codigo: string): Observable<MensajeDTO> {
     return this.http.get<MensajeDTO>(`${this.clienteURL}/cargar-citas/${codigo}`)
   }
 
