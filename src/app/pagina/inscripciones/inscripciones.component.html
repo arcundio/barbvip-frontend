@@ -1,1 +1,21 @@
-<p>inscripciones works!</p>
+<table class="table table-striped table-hover table-bordered">
+    <thead class="table-dark">
+        <tr class="text-center">
+            <th>Nombre del curso</th>
+            <th>Costo</th>
+            <th>Fecha Inscripción</th>
+            <th>Id. del Pago</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let inscripcion of inscripciones" class="text-center">
+            <td>{{ inscripcion.nombreCurso }}</td>
+            <td>{{ inscripcion.costo }}</td>
+            <td>{{ inscripcion.fechaInscripcion }}</td>
+            <td>{{ inscripcion.idPago }}</td>
+            <td>{{ inscripcion.estado }}</td>
+        </tr>
+    </tbody>
+</table>
+<app-crear-inscripcion></app-crear-inscripcion>

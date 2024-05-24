@@ -20,6 +20,7 @@ import { GestionServiciosComponent } from './pagina/gestion-servicios/gestion-se
 import { EditarServicioComponent } from './pagina/editar-servicio/editar-servicio.component';
 import { GestionCursosComponent } from './pagina/gestion-cursos/gestion-cursos.component';
 import { EditarCursoComponent } from './pagina/editar-curso/editar-curso.component';
+import { CrearInscripcionComponent } from './pagina/crear-inscripcion/crear-inscripcion.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { EditarCursoComponent } from './pagina/editar-curso/editar-curso.compone
     EditarServicioComponent,
     GestionCursosComponent,
     EditarCursoComponent,
+    CrearInscripcionComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,8 @@ import { GestionServiciosComponent } from './pagina/gestion-servicios/gestion-se
 import { EditarServicioComponent } from './pagina/editar-servicio/editar-servicio.component';
 import { GestionCursosComponent } from './pagina/gestion-cursos/gestion-cursos.component';
 import { EditarCursoComponent } from './pagina/editar-curso/editar-curso.component';
+import { InscripcionesComponent } from './pagina/inscripciones/inscripciones.component';
+import { CitasComponent } from './pagina/citas/citas.component';
 
 const routes: Routes = [
   {path: "", component: InicioComponent},
@@ -22,6 +24,8 @@ const routes: Routes = [
   {path: "editar-servicio/:codigo", component: EditarServicioComponent, canActivate: [RolesGuard], data: {expectedRole: ['admin']}},
   {path: "gestion-cursos", component: GestionCursosComponent, canActivate: [RolesGuard], data: {expectedRole: ['admin']}},
   {path: "editar-curso/:codigo", component: EditarCursoComponent, canActivate: [RolesGuard], data: {expectedRole: ['admin']}},
+  {path: "inscripciones", component: InscripcionesComponent, canActivate: [RolesGuard], data: {expectedRole: ['cliente']}},
+  {path: "citas", component: CitasComponent, canActivate: [RolesGuard], data: {expectedRole: ['cliente']}}
 ];
 
 @NgModule({

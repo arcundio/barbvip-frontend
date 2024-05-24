@@ -5,7 +5,6 @@ import { MensajeDTO } from '../modelo/mensaje-dto';
 import { SolicitudCitaDTO } from '../modelo/solicitud-cita-dto';
 import { InscripcionCursoDTO } from '../modelo/inscripcion-curso-dto';
 import { MetodoPagoDTO } from '../modelo/metodo-pago-dto';
-import { FechaDTO } from '../modelo/fecha-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +28,7 @@ export class ClienteService {
     return this.http.get<MensajeDTO>(`${this.clienteURL}/cargar-inscripciones/${codigo}`)
   }
 
-  public cargarCitas(codigo: number): Observable<MensajeDTO> {
+  public cargarCitas(codigo: string): Observable<MensajeDTO> {
     return this.http.get<MensajeDTO>(`${this.clienteURL}/cargar-citas/${codigo}`)
   }
 

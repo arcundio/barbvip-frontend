@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
   }
 
 
-  private actualizarSesion(estado: boolean) {
+  private async actualizarSesion(estado: boolean) {
     this.isLogged = estado;
     if (estado) {
       this.email = this.tokenService.getEmail();

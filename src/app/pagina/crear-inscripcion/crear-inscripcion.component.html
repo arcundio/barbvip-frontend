@@ -1,0 +1,13 @@
+
+
+<div class="mb-3">
+    <label for="combobox" class="form-label">Selecciona una opción</label>
+    <select id="combobox" class="form-select" [(ngModel)]="codigoCurso">
+        <option *ngFor="let curso of cursos" [value]="curso.idCurso">{{ curso.nombre }}</option>
+    </select>
+</div>
+
+<button type="button" class="btn btn-dark" (click)="inscribir()"> Inscribirse </button>
+
+
+<app-alerta [alerta]="alerta"></app-alerta>
