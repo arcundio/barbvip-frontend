@@ -42,7 +42,7 @@ import { GestionarPagosComponent } from './pagina/admin/gestionar-pagos/gestiona
     MenuAdminComponent,
     GestionarAgendaComponent,
     MenuClienteComponent,
-    GestionarPagosComponent,
+    GestionarPagosComponent
   ],
   imports: [
     BrowserModule,

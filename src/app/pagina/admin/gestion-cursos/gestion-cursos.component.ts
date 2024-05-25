@@ -12,6 +12,7 @@ import { CursoDTO } from '../../../modelo/admin/curso-dto';
 export class GestionCursosComponent {
   cursos !: CursoDTO[]
   alerta !: Alerta;
+  auxiliarCursos: CursoDTO[] = [];
 
   constructor(private adminServicio: AdministradorService, private router: Router) {
     
@@ -20,7 +21,7 @@ export class GestionCursosComponent {
     this.adminServicio.listarCursos().subscribe({
       next: data => {
         this.cursos = data.respuesta;
-        console.log(this.cursos)
+        this.auxiliarCursos = Array.from(this.cursos);
       },
       error: error => {
         this.alerta = new Alerta(error.error.respuesta, "danger")
@@ -30,6 +31,15 @@ export class GestionCursosComponent {
 
   public addCurso() {
     this.router.navigate(["/admin/crear-curso"]);
+  }
+
+  filtrarTabla(event: any){
+    let estadoSelecionado = event.target.value;
+    if (estadoSelecionado == "") {
+      this.auxiliarCursos = this.cursos;
+    } else {
+      this.auxiliarCursos = this.cursos.filter(c => c.activo == estadoSelecionado);
+    }
   }
 
 

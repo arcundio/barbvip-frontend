@@ -6,7 +6,14 @@
           <div class="col-sm-6">
             <h4><b>Gestión Servicios</b></h4>
           </div>
-          <div class="col-sm-6 text-end">
+          <div class="col-sm-6 text-end d-flex justify-content-end align-items-center">
+            <div class="form-group me-2">
+              <select class="form-select" id="miSelect" (change)="filtrarTabla($event)">
+                <option value="">Selecciona...</option>
+                <option value="1">Si</option>
+                <option value="0">No</option>
+              </select>
+            </div>
             <button class="btn btn-success" (click)="addServicio()">
               <i class="bi bi-plus-circle"></i> <span> Añadir </span>
             </button>
@@ -25,7 +32,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let servicio of servicios" class="text-center">
+          <tr *ngFor="let servicio of auxiliarServicios" class="text-center">
             <td>{{ servicio.idServicio }}</td>
             <td>{{ servicio.nombre }}</td>
             <td>{{ servicio.descripcion }}</td>

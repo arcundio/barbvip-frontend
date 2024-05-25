@@ -1,0 +1,10 @@
+.btn-confirm {
+    display: block;
+    margin: 0 auto;
+    background-color: green;
+    color: white;
+  }
+
+  .mt-5 {
+    margin-top: 3rem; /* Margen superior de 3rem (48px si se usa el tamaño de fuente base de 16px) */
+  }

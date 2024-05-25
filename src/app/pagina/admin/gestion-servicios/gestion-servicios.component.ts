@@ -17,6 +17,7 @@ export class GestionServiciosComponent implements OnInit{
 
   servicios !: ItemServicioDTO[]
   alerta !: Alerta;
+  auxiliarServicios: ItemServicioDTO[] = []
 
   constructor(private adminServicio: AdministradorService, private router: Router) {
 
@@ -25,7 +26,7 @@ export class GestionServiciosComponent implements OnInit{
     this.adminServicio.listarServicios().subscribe({
       next: data => {
         this.servicios = data.respuesta;
-        console.log(this.servicios)
+        this.auxiliarServicios = Array.from(this.servicios);
       },
       error: error => {
         this.alerta = new Alerta(error.error.respuesta, "danger")
@@ -46,6 +47,15 @@ export class GestionServiciosComponent implements OnInit{
         this.alerta = new Alerta(error.error.respuesta, "danger")
       }
     })
+  }
+
+  filtrarTabla(event: any){
+    let estadoSelecionado = event.target.value;
+    if (estadoSelecionado == "") {
+      this.auxiliarServicios = this.servicios;
+    } else {
+      this.auxiliarServicios = this.servicios.filter(s => s.activo == estadoSelecionado);
+    }
   }
 
 
