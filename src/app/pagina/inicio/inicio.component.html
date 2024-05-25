@@ -1,53 +1,38 @@
 <div class="container-xl mt-4">
     <div class="hero text-white text-center d-flex align-items-center justify-content-center">
-        <div>
-            <h1>Bienvenido a Barbería VIP</h1>
-            <p>Donde la tradición se encuentra con la innovación experimenta
-                cortes modernos, barbas a la última y cejas perfectas en nuestra barbería.
-                ¡Descubre también nuestros cursos de barbería para convertirte en un maestro del arte!
-            </p>
-            <a href="#servicios" class="btn btn-primary btn-lg mt-3">Nuestros Servicios</a>
+      <div>
+        <h1>Bienvenido a Barbería VIP</h1>
+        <p>Donde la tradición se encuentra con la innovación experimenta cortes modernos, barbas a la última y cejas perfectas en nuestra barbería. ¡Descubre también nuestros cursos de barbería para convertirte en un maestro del arte!</p>
+        <div class="d-flex justify-content-center">
+          <a href="#servicios" class="btn btn-primary btn-lg mt-3 me-3">Nuestros Servicios</a>
+          <a href="#cursos" class="btn btn-primary btn-lg mt-3">Nuestros Cursos</a>
         </div>
+      </div>
     </div>
-
     <section id="servicios" class="services text-center mt-5">
-        <div class="container">
-            <h2 class="mb-4">Nuestros Servicios</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="service p-4">
-                        <h3>Corte de Cabello</h3>
-                        <p>Estilos modernos y clásicos para todos los gustos.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="service p-4">
-                        <h3>Corte de barba</h3>
-                        <p>La mejor experiencia de afeitado con nuestras navajas y productos premium.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="service p-4">
-                        <h3>Depilación de cejas</h3>
-                        <p>Cuida y embellece tus cejas con nuestros especialistas.</p>
-                    </div>
-                </div>
+      <div class="container">
+        <h2 class="mb-4">Nuestros Servicios</h2>
+        <div class="row">
+          <div class="col-md-4 mb-4" *ngFor="let servicio of servicios">
+            <div class="service p-4">
+              <h3>{{ servicio.nombre }}</h3>
+              <p>{{ servicio.descripcion }}</p>
             </div>
+          </div>
         </div>
+      </div>
     </section>
-
-
-    <section id="servicios" class="services text-center mt-5">
-        <div class="container">
-            <h2 class="mb-4">Nuestros Cursos</h2>
-            <div class="row" *ngFor="let curso of cursos">
-                <div class="col-md-4 mb-4">
-                    <div class="service p-4">
-                        <h3>{{ curso.nombre }}</h3>
-                        <p>{{ curso.descripcion }}</p>
-                    </div>
-                </div>
+    <section id="cursos" class="services text-center mt-5">
+      <div class="container">
+        <h2 class="mb-4">Nuestros Cursos</h2>
+        <div class="row" *ngFor="let curso of cursos">
+          <div class="col-md-4 mb-4">
+            <div class="service p-4">
+              <h3>{{ curso.nombre }}</h3>
+              <p>{{ curso.descripcion }}</p>
             </div>
+          </div>
         </div>
+      </div>
     </section>
-</div>
+  </div>

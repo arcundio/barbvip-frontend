@@ -32,3 +32,15 @@
 .services .service:hover {
     transform: translateY(-0.5rem);
 }
+
+.hero {
+    background-color: rgba(0, 0, 0, 0.5);
+    background-image: url('https://res.cloudinary.com/dsia0fezi/image/upload/v1716654418/OIG4.y0LLEtLV_ddhln4.jpg');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+  }
+  
+  .hero .text-white {
+    color: #fff !important;
+  }
