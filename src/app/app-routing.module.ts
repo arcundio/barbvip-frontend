@@ -16,11 +16,13 @@ import { GestionarPagosComponent } from './pagina/admin/gestionar-pagos/gestiona
 import { CitasComponent } from './pagina/cliente/citas/citas.component';
 import { PagoComponent } from './pagina/cliente/pago/pago.component';
 import { InscripcionesComponent } from './pagina/cliente/inscripciones/inscripciones.component';
+import { RecuperarPasswordComponent } from './pagina/recuperar-password/recuperar-password.component';
 
 const routes: Routes = [
   {path: "", component: InicioComponent},
   {path: "login", component: LoginComponent, canActivate: [LoginGuard]},
   {path: "registro", component: RegistroComponent, canActivate: [LoginGuard]},
+  {path: "recuperar-password/:email", component: RecuperarPasswordComponent },
   {path: "admin/crear-curso", component: CrearCursoComponent, canActivate: [RolesGuard], data: {expectedRole: ['admin']}},
   {path: "admin/crear-servicio", component: CrearServicioComponent, canActivate: [RolesGuard], data: {expectedRole: ['admin']}},
   {path: "admin/gestion-servicios", component: GestionServiciosComponent, canActivate: [RolesGuard], data: {expectedRole: ['admin']}},

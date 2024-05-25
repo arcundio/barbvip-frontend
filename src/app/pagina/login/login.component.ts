@@ -5,6 +5,7 @@ import { AuthService } from '../../servicios/auth.service';
 import { TokenService } from '../../servicios/token.service';
 import { Alerta } from '../../modelo/otros/alerta';
 import { AppComponent } from '../../app.component';
+import { BarberiaServicio } from '../../servicios/barberia_servicio';
 
 @Component({
   selector: 'app-login',
@@ -16,8 +17,10 @@ export class LoginComponent {
   login: LoginDTO;
   loginForm !: FormGroup;
   alerta!:Alerta;
+  mostrarMensaje:string ="";
+  mostrarMess:boolean=false;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private tokenService: TokenService) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private tokenService: TokenService, private barberiaService: BarberiaServicio) {
     this.login = new LoginDTO("", "");
   }
 
@@ -33,6 +36,30 @@ export class LoginComponent {
       }
     });
     console.log(this.login)
+  }
+
+  enviarLinkRecuperacion(event: Event) {
+    event.preventDefault();
+
+    if(this.login.email==""){
+      this.mostrarMess=true;
+      this.mostrarMensaje="Debes ingresar el correo si quieres recuperar la cuenta"
+      
+    }else{
+      this.mostrarMess=false;
+      let email : string = this.login.email;
+
+      this.barberiaService.enviarLinkRecuperacion(email).subscribe({
+        next: data => {
+          this.alerta = { mensaje: data.respuesta, tipo: "success" };
+        },
+        error: error => {
+          this.alerta = { mensaje: error.error.respuesta, tipo: "danger" };
+        }
+      });
+    }
+
+   
   }
 
 }

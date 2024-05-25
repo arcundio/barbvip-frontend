@@ -22,6 +22,7 @@ import { GestionarAgendaComponent } from './pagina/admin/gestionar-agenda/gestio
 import { MenuAdminComponent } from './pagina/admin/menu-admin/menu-admin.component';
 import { MenuClienteComponent } from './pagina/cliente/menu-cliente/menu-cliente.component';
 import { GestionarPagosComponent } from './pagina/admin/gestionar-pagos/gestionar-pagos.component';
+import { RecuperarPasswordComponent } from './pagina/recuperar-password/recuperar-password.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { GestionarPagosComponent } from './pagina/admin/gestionar-pagos/gestiona
     MenuAdminComponent,
     GestionarAgendaComponent,
     MenuClienteComponent,
-    GestionarPagosComponent
+    GestionarPagosComponent,
+    RecuperarPasswordComponent
   ],
   imports: [
     BrowserModule,

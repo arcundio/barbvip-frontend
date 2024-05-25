@@ -29,5 +29,9 @@ export class BarberiaServicio {
         return this.http.get<MensajeDTO>(`${this.barberiaURL}/estados`);
     }
 
+    public enviarLinkRecuperacion(email: string): Observable<MensajeDTO> {
+        return this.http.get<MensajeDTO>(`${this.barberiaURL}/enviar-link-recuperacion/${email}`);
+    }
+
 
 }

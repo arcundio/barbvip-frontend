@@ -19,8 +19,8 @@
     <div class="card mb-3">
         <div class="row g-0 d-flex align-items-center">
             <div class="col-lg-4 d-none d-lg-flex">
-                <img src="https://res.cloudinary.com/dsia0fezi/image/upload/v1716481734/proyecto/OIG1.1_k5r1qg.jpg" alt="Trendy Pants and Shoes"
-                    class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
+                <img src="https://res.cloudinary.com/dsia0fezi/image/upload/v1716481734/proyecto/OIG1.1_k5r1qg.jpg"
+                    alt="Trendy Pants and Shoes" class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
             </div>
             <div class="col-lg-8">
                 <div class="card-body py-5 px-md-5">
@@ -31,7 +31,7 @@
                             <label class="form-label" for="form2Example1">Correo Electrónico</label>
                             <input type="email" id="form2Example1" class="form-control" [(ngModel)]="login.email"
                                 name="email" required />
-                           
+
                         </div>
 
                         <!-- Password input -->
@@ -39,12 +39,25 @@
                             <label class="form-label" for="form2Example2">Contraseña</label>
                             <input type="password" id="form2Example2" class="form-control" [(ngModel)]="login.password"
                                 name="password" required />
-                          
+
                         </div>
 
                         <!-- Submit button -->
                         <button type="submit" class="btn btn-primary btn-block mb-4" [disabled]="f.invalid">Iniciar
                             Sesión</button>
+
+                        <div>
+                            <a href="#" (click)="enviarLinkRecuperacion($event)">Recuperar contraseña</a>
+                        </div>
+                        <div *ngIf="mostrarMess; then habilitarMensaje">
+                        </div>
+                        <ng-template #habilitarMensaje>
+                            <div class="text-left">
+                                <div class="alert alert-danger" role="alert">{{mostrarMensaje}}
+                                </div>
+                            </div>
+                        </ng-template>
+                        <app-alerta [alerta]="alerta"></app-alerta>
                     </form>
                 </div>
             </div>
