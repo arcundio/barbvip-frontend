@@ -12,7 +12,7 @@ import { MetodoPagoCitaDTO } from '../modelo/cliente/metodo-pago-cita-dto';
 })
 export class ClienteService {
 
-  private clienteURL = "http://localhost:8081/api/clientes"
+  private clienteURL = "https://software-5ncs.onrender.com/api/clientes"
 
   constructor(private http: HttpClient) { 
   }

@@ -11,7 +11,7 @@ import { CambioPasswordDTO } from '../modelo/barberia/CambioPasswordDTO';
 })
 export class AuthService {
 
-  private authURL = "http://localhost:8081/api/auth"
+  private authURL = "https://software-5ncs.onrender.com/api/auth"
 
   constructor(private http: HttpClient) { }
 

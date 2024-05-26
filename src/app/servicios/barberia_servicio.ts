@@ -8,7 +8,7 @@ import { MensajeDTO } from '../modelo/otros/mensaje-dto';
 })
 export class BarberiaServicio {
 
-    private barberiaURL = "http://localhost:8081/api/barberia"
+    private barberiaURL = "https://software-5ncs.onrender.com/api/barberia"
 
     constructor(private http: HttpClient) { }
 

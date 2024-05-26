@@ -13,7 +13,7 @@ import { ItemAgendaDTO } from '../modelo/admin/ItemAgendaDTO';
 })
 export class AdministradorService {
 
-  private adminURL = "http://localhost:8081/api/administrador"
+  private adminURL = "https://software-5ncs.onrender.com/api/administrador"
 
   constructor(private http: HttpClient) { }
 
