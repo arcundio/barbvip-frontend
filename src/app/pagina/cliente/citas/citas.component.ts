@@ -28,7 +28,7 @@ export class CitasComponent {
 
   // servicios a enviar 
   servicioEnviar !: SolicitudCitaDTO 
-
+  selectedCheckbox: HTMLInputElement | null = null
 
 
   constructor(private clienteService: ClienteService, private tokenService: TokenService, private barberiaService: BarberiaService) {
@@ -71,14 +71,29 @@ export class CitasComponent {
     console.log(this.idBarbero)
   }
 
-  onCheckboxChange(event: any) {
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-    this.selectedCheckboxCount = checkboxes.length;
-
-    if (this.selectedCheckboxCount > 1) {
-      event.target.checked = false;
+  onCheckboxChange(event: any, item: ItemBarberoCitaDTO) {
+    const checkbox = event.target as HTMLInputElement;
+  
+    if (checkbox.checked) {
+      // Si se marca el checkbox
+      if (this.selectedCheckbox && this.selectedCheckbox !== checkbox) {
+        // Si hay un checkbox seleccionado anteriormente y es diferente al actual, desmarcar el anterior
+        this.selectedCheckbox.checked = false;
+      }
+  
+      // Asignar el código de barbero y la hora correspondientes
+      this.idBarbero = item.codigoBarbero;
+      this.hora = item.hora;
+      this.selectedCheckbox = checkbox;
+    } else {
+      // Si se desmarca el checkbox
+      if (this.selectedCheckbox === checkbox) {
+        // Si el checkbox desmarcado es el mismo que el seleccionado actualmente
+        this.idBarbero = 0;
+        this.hora = "";
+        this.selectedCheckbox = null;
+      }
     }
-
   }
 
   solicitarCita() {

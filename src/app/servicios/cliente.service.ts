@@ -45,7 +45,9 @@ export class ClienteService {
     return this.http.post<MensajeDTO>(`${this.clienteURL}/pagar-inscripcion`, metodo)
   }
 
-
+  public cargarMetodosPay(codigoCliente: number): Observable<MensajeDTO>{
+    return this.http.get<MensajeDTO>(`${this.clienteURL}/metodos-pay/${codigoCliente}`)
+  }
 
   
 }

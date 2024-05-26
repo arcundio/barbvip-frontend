@@ -85,7 +85,7 @@ export class PagoComponent {
 
 
   seleccionarEstado() {
-    console.log("Estado seleccionado: " + this.estadoSeleccionadoCita)
+    console.log("Estado seleccionado: " + this.estadoSeleccionadoInscripcion)
   }
 
   filtrarTablaCita(event: any) {

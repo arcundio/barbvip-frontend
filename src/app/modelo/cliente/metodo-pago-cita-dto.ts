@@ -6,5 +6,7 @@ export class MetodoPagoCitaDTO {
     fechaExpiracion: string = "";
     primerNombre: string = "";
     apellido: string = "";
+    idMetodo: number = 0;
+    idCliente: number = 0;
     
 }
