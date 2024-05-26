@@ -4,4 +4,5 @@ export class ItemServicioDTO {
     descripcion: string = "";
     costo: number = 0;
     activo: boolean = false;
+    seleccionado ?: boolean;
 }

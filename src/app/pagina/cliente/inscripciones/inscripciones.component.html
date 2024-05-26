@@ -1,1 +1,48 @@
-<p>inscripciones works!</p>
+<div class="container-xl mt-4">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <table class="table table-striped table-hover table-bordered">
+                <thead class="table-dark">
+                    <tr class="text-center">
+                        <th>Nombre del curso</th>
+                        <th>Costo</th>
+                        <th>Fecha Inscripción</th>
+                        <th>Id. del Pago</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let inscripcion of inscripciones" class="text-center">
+                        <td>{{ inscripcion.nombreCurso }}</td>
+                        <td>{{ inscripcion.costo }}</td>
+                        <td>{{ inscripcion.fechaInscripcion }}</td>
+                        <td>{{ inscripcion.idPago }}</td>
+                        <td>
+                            <span [class.text-bg-danger]="inscripcion.estado === 'PENDIENTE'"
+                                [class.text-bg-success]="inscripcion.estado !== 'PENDIENTE'" class="badge me-2">
+                                {{ inscripcion.estado }}
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="mb-3">
+    <label for="combobox" class="form-label">Selecciona una opción</label>
+    <select id="combobox" class="form-select" [(ngModel)]="codigoCurso">
+        <option *ngFor="let curso of cursos" [value]="curso.idCurso">{{ curso.nombre }}</option>
+    </select>
+</div>
+
+<div class="d-flex justify-content-center">
+    <button type="button" class="btn btn-success mb-3" (click)="inscribir()"> Inscribirse </button>
+</div>
+
+
+<app-alerta [alerta]="alerta"></app-alerta>

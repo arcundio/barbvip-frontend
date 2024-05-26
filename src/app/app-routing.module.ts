@@ -17,6 +17,7 @@ import { CitasComponent } from './pagina/cliente/citas/citas.component';
 import { PagoComponent } from './pagina/cliente/pago/pago.component';
 import { InscripcionesComponent } from './pagina/cliente/inscripciones/inscripciones.component';
 import { RecuperarPasswordComponent } from './pagina/recuperar-password/recuperar-password.component';
+import { PasarelaComponent } from './pagina/cliente/pasarela/pasarela.component';
 
 const routes: Routes = [
   {path: "", component: InicioComponent},
@@ -34,6 +35,10 @@ const routes: Routes = [
   {path: "cliente/citas", component: CitasComponent, canActivate: [RolesGuard], data: {expectedRole: ['cliente']}},
   {path: "cliente/pago", component: PagoComponent, canActivate: [RolesGuard], data: {expectedRole: ['cliente']}},
   {path: "cliente/inscripciones", component: InscripcionesComponent, canActivate: [RolesGuard], data: {expectedRole: ['cliente']}},
+  {path: "cliente/pasarela/:codigo/:tipo", component: PasarelaComponent, canActivate: [RolesGuard], 
+  data: 
+  {expectedRole: ['cliente'],
+  }},
 ];
 
 @NgModule({

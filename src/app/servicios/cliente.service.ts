@@ -5,6 +5,7 @@ import { MensajeDTO } from '../modelo/otros/mensaje-dto';
 import { SolicitudCitaDTO } from '../modelo/cliente/solicitud-cita-dto';
 import { InscripcionCursoDTO } from '../modelo/cliente/inscripcion-curso-dto';
 import { MetodoPagoDTO } from '../modelo/cliente/metodo-pago-dto';
+import { MetodoPagoCitaDTO } from '../modelo/cliente/metodo-pago-cita-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -28,16 +29,20 @@ export class ClienteService {
     return this.http.get<MensajeDTO>(`${this.clienteURL}/cargar-inscripciones/${codigo}`)
   }
 
-  public cargarCitas(codigo: string): Observable<MensajeDTO> {
+  public cargarCitas(codigo: number): Observable<MensajeDTO> {
     return this.http.get<MensajeDTO>(`${this.clienteURL}/cargar-citas/${codigo}`)
   }
 
-  public pagar(metodo: MetodoPagoDTO): Observable<MensajeDTO> {
-    return this.http.post<MensajeDTO>(`${this.clienteURL}/pagar`, metodo)
+  public pagarCita(metodo: MetodoPagoCitaDTO): Observable<MensajeDTO> {
+    return this.http.post<MensajeDTO>(`${this.clienteURL}/pagar-cita`, metodo)
   }
 
   public filtrarBarberoCita(fecha: any): Observable<MensajeDTO> {
     return this.http.get<MensajeDTO>(`${this.clienteURL}/filtrar-barbero-cita/${fecha}`)
+  }
+
+  public pagarInscripcion(metodo: MetodoPagoDTO): Observable<MensajeDTO> {
+    return this.http.post<MensajeDTO>(`${this.clienteURL}/pagar-inscripcion`, metodo)
   }
 
 

@@ -1,9 +1,10 @@
-export class MetodoPagoDTO {
+export class MetodoPagoCitaDTO {
 
-    idInscripcion: number = 0;
+    idCita: number = 0;
     numeroTarjeta: number = 0;
     codigoSeguridad: number = 0;
     fechaExpiracion: string = "";
     primerNombre: string = "";
     apellido: string = "";
+    
 }

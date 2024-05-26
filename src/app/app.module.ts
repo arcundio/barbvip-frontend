@@ -23,6 +23,7 @@ import { MenuAdminComponent } from './pagina/admin/menu-admin/menu-admin.compone
 import { MenuClienteComponent } from './pagina/cliente/menu-cliente/menu-cliente.component';
 import { GestionarPagosComponent } from './pagina/admin/gestionar-pagos/gestionar-pagos.component';
 import { RecuperarPasswordComponent } from './pagina/recuperar-password/recuperar-password.component';
+import { PasarelaComponent } from './pagina/cliente/pasarela/pasarela.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { RecuperarPasswordComponent } from './pagina/recuperar-password/recupera
     GestionarAgendaComponent,
     MenuClienteComponent,
     GestionarPagosComponent,
-    RecuperarPasswordComponent
+    RecuperarPasswordComponent,
+    PasarelaComponent
   ],
   imports: [
     BrowserModule,

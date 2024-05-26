@@ -25,8 +25,8 @@
     <section id="cursos" class="services text-center mt-5">
       <div class="container">
         <h2 class="mb-4">Nuestros Cursos</h2>
-        <div class="row" *ngFor="let curso of cursos">
-          <div class="col-md-4 mb-4">
+        <div class="row" >
+          <div class="col-md-4 mb-4" *ngFor="let curso of cursos">
             <div class="service p-4">
               <h3>{{ curso.nombre }}</h3>
               <p>{{ curso.descripcion }}</p>

@@ -1,0 +1,37 @@
+<form #f="ngForm" (ngSubmit)="pagar()">
+
+    <h4 class="mb-3">Pago</h4>
+    <div class="row gy-3">
+        <div class="col-md-6">
+            <label for="cc-name" class="form-label">Nombre en la tarjeta</label>
+            <input name="nombre" type="text" class="form-control" [(ngModel)]="primerNombre">
+            <small class="text-body-secondary">Nombre completo en la tarjeta</small>
+            <div class="invalid-feedback">
+                El nombre es requerido
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <label for="cc-number" class="form-label">Número de tarjeta</label>
+            <input name="numero" type="text" minlength="15" maxlength="16" class="form-control"
+            [(ngModel)]="numero">
+        </div>
+
+        <div class="col-md-3">
+            <label for="cc-expiration" class="form-label">Expiración</label>
+            <input name="fecha" type="date" class="form-control"
+            [(ngModel)]="expiracion">
+        </div>
+
+        <div class="col-md-3">
+            <label for="cc-cvv" class="form-label">CVV</label>
+            <input name="codigo-seguridad" type="text" minlength="3" maxlength="4" class="form-control"
+            [(ngModel)]="codigoSeguridad">
+        </div>
+    </div>
+
+    <hr class="my-4">
+
+    <button class="w-100 btn btn-primary btn-lg" type="submit">Pagar</button>
+</form>
+<app-alerta [alerta]="alerta"></app-alerta>

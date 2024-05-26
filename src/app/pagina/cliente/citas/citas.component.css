@@ -1,0 +1,17 @@
+.custom-date-input {
+    border: 2px solid #007bff;
+    /* Borde azul */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    padding: 10px;
+    /* Espaciado interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra */
+}
+
+.custom-date-input:focus {
+    border-color: #0056b3;
+    /* Borde azul más oscuro al enfocarse */
+    box-shadow: 0 0 5px rgba(0, 91, 187, 0.5);
+    /* Sombra azul al enfocarse */
+}

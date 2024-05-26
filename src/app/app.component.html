@@ -1,43 +1,53 @@
+<header class="bg-dark text-white py-3">
+  <div class="container">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <h1 class="h3 mb-3 mb-md-0">Barbería VIP</h1>
 
-  <header class="bg-dark text-white py-3">
-    <div class="container">
-      <div class="d-flex justify-content-between align-items-center">
-        <h1 class="h3 mb-0">Barbería VIP</h1>
-
-        <app-menu-cliente class="col-12 col-lg-auto me-lg-auto" *ngIf="rol == 'cliente'"></app-menu-cliente>
-        <app-menu-admin class="col-12 col-lg-auto me-lg-auto" *ngIf="rol == 'admin'"></app-menu-admin>
-
-        <div class="text-end" *ngIf="!isLogged; then nologged else logged"></div>
-        <ng-template #nologged>
-          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a routerLink="" class="nav-link px-2 text-white">Inicio</a></li>
-          </ul>
-          <div class="text-end">
-            <button type="button" routerLink="/login" class="btn btn-outline-light me-2">Login</button>
-            <button type="button" routerLink="/registro" class="btn btn-warning">Sign-up</button>
-          </div>
-        </ng-template>
-        <ng-template #logged>
-          <div class="text-end">
-            <label class="me-3">Hola {{email}}</label>
-            <button type="button" (click)="logout()" class="btn btn-warning">Logout</button>
-          </div>
-        </ng-template>
-
+      <div class="d-flex flex-column flex-md-row align-items-center mb-3 mb-md-0">
+        <ng-container *ngIf="rol == 'cliente'">
+          <app-menu-cliente class="col-12 col-lg-auto me-lg-auto mb-2 mb-md-0"></app-menu-cliente>
+        </ng-container>
+        <ng-container *ngIf="rol == 'admin'">
+          <app-menu-admin class="col-12 col-lg-auto me-lg-auto mb-2 mb-md-0"></app-menu-admin>
+        </ng-container>
       </div>
-    </div>
-  </header>
 
-  <!-- Main Content -->
-  <main class="flex-grow-1">
-    <div class="container mt-4">
-      <router-outlet></router-outlet>
+      <div *ngIf="!isLogged; then nologged else logged"></div>
+      <ng-template #nologged>
+        <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a routerLink="" class="nav-link px-2 text-white">Inicio</a></li>
+        </ul>
+        <div class="d-flex flex-column flex-md-row text-end">
+          <button type="button" routerLink="/login" class="btn btn-outline-light me-2 mb-2 mb-md-0">Login</button>
+          <button type="button" routerLink="/registro" class="btn btn-warning mb-2 mb-md-0">Sign-up</button>
+        </div>
+      </ng-template>
+      <ng-template #logged>
+        <div class="text-end d-flex flex-column flex-md-row align-items-center">
+          <label class="me-3 mb-2 mb-md-0">Hola {{email}}</label>
+          <button type="button" (click)="logout()" class="btn btn-warning">Logout</button>
+        </div>
+      </ng-template>
     </div>
-  </main>
+  </div>
+</header>
 
-  <!-- Footer -->
-  <footer class="bg-dark text-white py-3 mt-auto">
-    <div class="container text-center">
-      <p class="mb-0">© 2024 Barbería VIP</p>
+<!-- Main Content -->
+<main class="seccion-pagina p-4">
+  <div class="container mt-4">
+    <router-outlet></router-outlet>
+  </div>
+</main>
+
+<div class="container">
+  <footer class="d-flex flex-wrap justify-content-center align-items-center py-3 my-4 border-top">
+    <div class="col-md-12 text-center">
+      <span class="mb-3 mb-md-0 text-muted">© 2024 Barbería VIP</span>
     </div>
+    <ul class="nav col-md-12 justify-content-center list-unstyled d-flex">
+      <li class="ms-3"><a class="text-muted" href="#"><i class="fab fa-twitter fs-5"></i></a></li>
+      <li class="ms-3"><a class="text-muted" href="#"><i class="fab fa-instagram fs-5"></i></a></li>
+      <li class="ms-3"><a class="text-muted" href="#"><i class="fab fa-facebook fs-5"></i></a></li>
+    </ul>
   </footer>
+</div>
